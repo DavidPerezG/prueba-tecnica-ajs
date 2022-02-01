@@ -5,12 +5,35 @@
     </p>
     <mat-card-content>
       <mat-card-title translate>Buenos Días!</mat-card-title>
-      <mat-card-subtitle> ESCRIBA UN NUMERO A EVALUAR </mat-card-subtitle>
+      <mat-card-subtitle> ESCRIBA UN NÚMERO A EVALUAR </mat-card-subtitle>
       <form action="">
-        <input type="number" [formControl]="numberCtrl" />
-        <button type="button" (click)="getNumber($event)">Enviar</button>
+        <mat-form-field>
+          <mat-label>Número</mat-label>
+          <input matInput type="number" [formControl]="numberCtrl" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="button" (click)="getNumber($event)">Enviar</button>
       </form>
-      <p [style.color]="color">{{ resultado }}</p>
+      <p></p>
+      <mat-card class="number-card" [style.background-color]="color">{{ resultado }}</mat-card>
+
+      <mat-grid-list cols="3" rowHeight="50px">
+        <mat-grid-tile
+          [ngStyle]="{ 'background-color': multiplos?.includes(3) ? 'rgb(53, 182, 143)' : 'rgb(110, 108, 136)' }"
+        >
+          3
+        </mat-grid-tile>
+        <mat-grid-tile
+          [ngStyle]="{ 'background-color': multiplos?.includes(5) ? 'rgb(230, 113, 67)' : 'rgb(110, 108, 136)' }"
+        >
+          5
+        </mat-grid-tile>
+        <mat-grid-tile
+          [ngStyle]="{ 'background-color': multiplos?.includes(7) ? 'rgb(67, 110, 230)' : 'rgb(110, 108, 136)' }"
+        >
+          7
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-card-content>
   </mat-card>
 </div>

@@ -11,7 +11,7 @@ export class FirebaseService {
     return this.db.collection('numbers').snapshotChanges();
   }
 
-  addNumber(number: Number, multiple: Number[]) {
+  addNumber(number: Number, multiple: Number[] | undefined) {
     var object = {
       number,
       multiple,

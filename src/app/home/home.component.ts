@@ -6,6 +6,7 @@ import { QuoteService } from './quote.service';
 
 import { FirebaseService } from '@app/services/firebase.service';
 import { ArrayType } from '@angular/compiler';
+import { multiply } from '@angular/flex-layout/core/multiply/multiplier';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,8 @@ import { ArrayType } from '@angular/compiler';
 })
 export class HomeComponent implements OnInit {
   numberCtrl = new FormControl('', []);
-  resultado = '';
+  resultado = 'Resultado';
+  multiplos = [1];
   color = '';
 
   constructor(private quoteService: QuoteService, private firebaseService: FirebaseService) {
@@ -26,33 +28,34 @@ export class HomeComponent implements OnInit {
     event.preventDefault();
 
     //Variable que guardara los multiplos del numero dado
-    var multiplos = [];
+    this.multiplos = [1]; //reiniciar variable de multiplos guardados
     var number = this.numberCtrl.value;
 
     if (number) {
       if (number % 7 == 0) {
         //divisible entre 7
-        multiplos.push(7);
-        this.color = 'blue';
+        this.multiplos?.push(7);
+        this.color = 'rgb(67, 110, 230)'; //blue
       }
       if (number % 5 == 0) {
         //divisible entre 5
-        multiplos.push(5);
-        this.color = 'red';
+        this.multiplos?.push(5);
+        this.color = 'rgb(230, 113, 67)'; //red
       }
       if (number % 3 == 0) {
         //divisible entre 3
-        multiplos.push(3);
-        this.color = 'green';
+        this.multiplos?.push(3);
+        this.color = 'rgb(53, 182, 143)'; //green
       }
-      this.resultado = `${number} [${multiplos}]`;
-      this.addNumber(number, multiplos);
+      this.resultado = number;
+      this.addNumber(number, this.multiplos!);
     } else {
       this.resultado = 'no se ingreso numero';
       this.color = 'black';
     }
   }
 
+  /* Enviar al Servicio de Firebase para guardar numero en base de datos*/
   addNumber(number: Number, multiplos: Number[]) {
     this.firebaseService
       .addNumber(number, multiplos)
@@ -76,4 +79,10 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  // setNumberStyle(number: Number){
+  //   if(this.multiplos?.includes()){
+
+  //   }
+  // }
 }

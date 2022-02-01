@@ -36,7 +36,7 @@
     }),
     (r.f = {}),
     (r.e = (e) => Promise.all(Object.keys(r.f).reduce((o, t) => (r.f[t](e, o), o), []))),
-    (r.u = (e) => e + '.aa5c4fc6f76d06b1.js'),
+    (r.u = (e) => e + '.f0818930793025e3.js'),
     (r.miniCssF = (e) => {}),
     (r.hmd = (e) => (
       (e = Object.create(e)).children || (e.children = []),

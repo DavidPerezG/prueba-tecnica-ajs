@@ -18,9 +18,7 @@ export class HomeComponent implements OnInit {
   multiplos = [1];
   color = '';
 
-  constructor(private quoteService: QuoteService, private firebaseService: FirebaseService) {
-    this.getAllNumbers();
-  }
+  constructor(private quoteService: QuoteService, private firebaseService: FirebaseService) {}
 
   ngOnInit() {}
 
@@ -67,22 +65,16 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  getAllNumbers() {
-    this.firebaseService.getData().subscribe(
-      (res) => {
-        res.map((e: any) => {
-          console.log(e.payload.doc.data().number);
-        });
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  // setNumberStyle(number: Number){
-  //   if(this.multiplos?.includes()){
-
-  //   }
+  // getAllNumbers() {
+  //   this.firebaseService.getData().subscribe(
+  //     (res) => {
+  //       res.map((e: any) => {
+  //         console.log(e.payload.doc.data().number);
+  //       });
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
   // }
 }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "prueba-tecnica-js": {
+      "hosting": {
+        "prueba-tecnica": [
+          "prueba-tecnica-js"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "prueba-tecnica-js"
+  }
+}

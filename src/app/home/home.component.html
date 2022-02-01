@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-card>
+    <p>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
+    </p>
+    <mat-card-content>
+      <mat-card-title translate>Buenos Días!</mat-card-title>
+      <mat-card-subtitle> ESCRIBA UN NUMERO A EVALUAR </mat-card-subtitle>
+      <form action="">
+        <input type="number" [formControl]="numberCtrl" />
+        <button type="button" (click)="getNumber($event)">Enviar</button>
+      </form>
+      <p [style.color]="color">{{ resultado }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
